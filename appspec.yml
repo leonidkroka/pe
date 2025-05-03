@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/pe/
+    file_exists_behavior: OVERWRITE
+permissions:
+  - object: /home/ubuntu/pe/
+    pattern: “**”
+    owner: ubuntu
+    group: ubuntu
+    mode: 775
+hooks:
+  AfterInstall:
+    - location: script/dependencies_install.sh
+      runas: ubuntu
+    - location: script/set_environment_variables.sh
+      runas: ubuntu
+    - location: script/start_server.sh
+      runas: ubuntu

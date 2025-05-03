@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+artifacts:
+  files:
+    - appspec.yml
+    - script/dependencies_install.sh
+    - script/set_environment_variables.sh
+    - script/start_server.sh
