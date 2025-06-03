@@ -219,7 +219,8 @@ GEM
     rdoc (6.14.0)
       erb
       psych (>= 4.0.0)
-    redis (4.8.1)
+    redis (5.4.0)
+      redis-client (>= 0.22.0)
     redis-client (0.24.0)
       connection_pool
     reline (0.6.1)
@@ -294,7 +295,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 6.0)
   rails (~> 8.0.2)
-  redis (~> 4.0)
+  redis (~> 5.4)
   sassc-rails
   sidekiq (~> 8.0)
   sprockets-rails

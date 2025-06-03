@@ -9,7 +9,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 6.0"
 gem "importmap-rails"
 gem "jbuilder"
-gem "redis", "~> 4.0"
+gem "redis", "~> 5.4"
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
