@@ -28,7 +28,7 @@ group :development do
 end
 
 
-gem "concurrent-ruby", "= 1.3.4"
+gem "concurrent-ruby", "1.3.5"
 gem "sidekiq", "~> 8.0"
 gem "devise", "~> 4.9"
 gem "dotenv", "~> 3.1"
