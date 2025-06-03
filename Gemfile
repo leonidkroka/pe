@@ -14,7 +14,7 @@ gem "redis", "~> 4.0"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'faker', require: true
-gem 'haml-rails', '~> 2.0.1'
+gem 'haml-rails', '~> 2.1.0'
 gem "sassc-rails"
 gem 'bootstrap'
 

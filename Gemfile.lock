@@ -100,26 +100,20 @@ GEM
     drb (2.2.3)
     erb (5.0.1)
     erubi (1.13.1)
-    erubis (2.7.0)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
     ffi (1.17.2-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    haml (5.2.2)
-      temple (>= 0.8.0)
+    haml (6.3.0)
+      temple (>= 0.8.2)
+      thor
       tilt
-    haml-rails (2.0.1)
+    haml-rails (2.1.0)
       actionpack (>= 5.1)
       activesupport (>= 5.1)
-      haml (>= 4.0.6, < 6.0)
-      html2haml (>= 1.0.1)
+      haml (>= 4.0.6)
       railties (>= 5.1)
-    html2haml (2.3.0)
-      erubis (~> 2.7.0)
-      haml (>= 4.0)
-      nokogiri (>= 1.6.0)
-      ruby_parser (~> 3.5)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.1.0)
@@ -227,9 +221,6 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    ruby_parser (3.21.1)
-      racc (~> 1.5)
-      sexp_processor (~> 4.16)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -239,7 +230,6 @@ GEM
       sprockets-rails
       tilt
     securerandom (0.4.1)
-    sexp_processor (4.17.3)
     sidekiq (8.0.4)
       connection_pool (>= 2.5.0)
       json (>= 2.9.0)
@@ -287,7 +277,7 @@ DEPENDENCIES
   devise (~> 4.9)
   dotenv (~> 3.1)
   faker
-  haml-rails (~> 2.0.1)
+  haml-rails (~> 2.1.0)
   importmap-rails
   jbuilder
   pg (~> 1.1)
