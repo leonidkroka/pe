@@ -78,7 +78,6 @@
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.8.1, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.21, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-mini-profiler (v2.3.4, asdf: 2.6.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack-proxy (v0.7.7, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v2.2.0, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v6.1.7.10, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.3.0, asdf: 2.6.5) [gem]" level="application" />
@@ -94,7 +93,6 @@
     <orderEntry type="library" scope="PROVIDED" name="sassc (v2.4.0, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sassc-rails (v2.1.2, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.1.0, asdf: 2.6.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="semantic_range (v3.1.0, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="spring (v3.1.1, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.2.2, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.5.2, asdf: 2.6.5) [gem]" level="application" />
@@ -107,7 +105,6 @@
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.6, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v4.2.1, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="webdrivers (v5.3.1, asdf: 2.6.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="webpacker (v5.4.4, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.8.0, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.5, asdf: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="xpath (v3.2.0, asdf: 2.6.5) [gem]" level="application" />
