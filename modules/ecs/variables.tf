@@ -49,3 +49,7 @@ variable "repository_name" {
 variable "secret_key_base" {
   description = "The secret key base to use in the app"
 }
+
+variable "region" {
+  description = "ECS AWS region"
+}

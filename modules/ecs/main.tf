@@ -21,6 +21,7 @@ data "template_file" "web_task" {
   vars = {
     image           = "${aws_ecr_repository.rails_terraform_app.repository_url}"
     secret_key_base = "${var.secret_key_base}"
+    region          = "${var.region}"
     database_url    = "postgresql://${var.database_username}:${var.database_password}@${var.database_endpoint}:5432/${var.database_name}?encoding=utf8&pool=40"
     log_group       = "${aws_cloudwatch_log_group.rails_terraform.name}"
   }
@@ -44,6 +45,7 @@ data "template_file" "db_migrate_task" {
     image           = "${aws_ecr_repository.rails_terraform_app.repository_url}"
     secret_key_base = "${var.secret_key_base}"
     database_url    = "postgresql://${var.database_username}:${var.database_password}@${var.database_endpoint}:5432/${var.database_name}?encoding=utf8&pool=40"
+    region          = "${var.region}"
     log_group       = "rails_terraform"
   }
 }
@@ -66,7 +68,7 @@ resource "random_id" "target_group_sufix" {
   byte_length = 2
 }
 
-resource "aws_alb_target_group" "alb_target_group" {
+resource "aws_lb_target_group" "alb_target_group" {
   name     = "${var.environment}-alb-target-group-${random_id.target_group_sufix.hex}"
   port     = 80
   protocol = "HTTP"
@@ -106,29 +108,6 @@ resource "aws_security_group" "web_inbound_sg" {
 
   tags = {
     Name = "${var.environment}-web-inbound-sg"
-  }
-}
-
-resource "aws_alb" "alb_rails-terraform" {
-  name            = "${var.environment}-alb-rails-terraform"
-  subnets         = "${var.public_subnet_ids}"
-  security_groups = "${concat(var.security_groups_ids, [aws_security_group.web_inbound_sg.id])}"
-
-  tags = {
-    Name        = "${var.environment}-alb-rails_terraform"
-    Environment = "${var.environment}"
-  }
-}
-
-resource "aws_alb_listener" "rails_terraform" {
-  load_balancer_arn = "${aws_alb.alb_rails-terraform.arn}"
-  port              = "80"
-  protocol          = "HTTP"
-  depends_on        = ["aws_alb_target_group.alb_target_group"]
-
-  default_action {
-    target_group_arn = "${aws_alb_target_group.alb_target_group.arn}"
-    type             = "forward"
   }
 }
 
@@ -222,18 +201,11 @@ resource "aws_ecs_service" "web" {
   desired_count   = 1
   launch_type     = "FARGATE"
   cluster =       "${aws_ecs_cluster.cluster.id}"
-  depends_on      = ["aws_iam_role_policy.ecs_service_role_policy", "aws_alb_target_group.alb_target_group"]
+  depends_on      = ["aws_iam_role_policy.ecs_service_role_policy"]
 
   network_configuration {
-    security_groups = "${concat(var.security_groups_ids, [aws_security_group.ecs_service.id])}"
-    subnets         = "${var.subnets_ids}"
+    security_groups  = "${concat(var.security_groups_ids, [aws_security_group.ecs_service.id, aws_security_group.web_inbound_sg.id])}"
+    subnets          = "${var.subnets_ids}"
+    assign_public_ip = true
   }
-
-  load_balancer {
-    target_group_arn = "${aws_alb_target_group.alb_target_group.arn}"
-    container_name   = "web"
-    container_port   = "80"
-  }
-
-  #depends_on = ["aws_alb_target_group.alb_target_group"]
 }

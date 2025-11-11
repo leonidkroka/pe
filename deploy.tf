@@ -7,8 +7,8 @@ locals {
 
 provider "aws" {
   region = var.region
-  access_key = "******************************"
-  secret_key = "******************************"
+  access_key = "****"
+  secret_key = "****"
 }
 
 resource "aws_key_pair" "key" {
@@ -36,7 +36,7 @@ module "rds" {
   database_password = var.database_password
   subnet_ids        = module.networking.private_subnets_id
   vpc_id            = module.networking.vpc_id
-  instance_class    = "db.t2.micro"
+  instance_class    = "db.t4g.micro"
 }
 
 module "ecs" {
@@ -53,4 +53,5 @@ module "ecs" {
   database_username = var.database_username
   database_password = var.database_password
   secret_key_base   = var.secret_key_base
+  region            = var.region
 }

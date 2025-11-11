@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "source" {
-  bucket        = "rails-terraform-experiment-source"
+  bucket        = "ouchie-rails-terraform-experiment-source"
   acl           = "private"
   force_destroy = true
 }
@@ -103,7 +103,7 @@ resource "aws_codepipeline" "pipeline" {
         Owner      = "ajays1991"
         Repo       = "rails_terraform"
         Branch     = "master"
-        OAuthToken = "******************************"
+        OAuthToken = "github_pat"
       }
     }
   }
